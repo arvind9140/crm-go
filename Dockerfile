@@ -19,7 +19,7 @@ RUN go mod download
 COPY . .
 
 # Build the Go application
-RUN go build -o crm-go ./cmd/main.go
+RUN go build -o crm-go main.go  # Adjusted to main.go if it's at root
 
 # Start a new stage for a minimal image
 FROM alpine:latest
@@ -31,7 +31,7 @@ WORKDIR /app
 COPY --from=builder /app/crm-go .
 
 # Expose port 8080 to the outside world
-EXPOSE 8080
+EXPOSE 3000
 
 # Command to run the executable
 CMD ["./crm-go"]
