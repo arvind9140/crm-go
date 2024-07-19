@@ -1,5 +1,5 @@
 # Start with a base image that includes Go
-FROM golang:1.17-alpine AS builder
+FROM golang:1.21-alpine AS builder
 
 # Set necessary environment variables
 ENV CGO_ENABLED=0 \
